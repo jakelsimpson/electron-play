@@ -8,6 +8,10 @@ const func = async () => {
 
 func();
 
+document.querySelector("#new_file").addEventListener("click",() => {
+    window.logging.logged();
+});
+
 // let testthis = window.location.pathname.split("/");
 // let currentpage = testthis[testthis.length - 1];
 

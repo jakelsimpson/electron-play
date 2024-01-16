@@ -6,3 +6,7 @@ contextBridge.exposeInMainWorld('versions',{
     electron: () => process.versions.electron,
     ping: () => ipcRenderer.invoke("ping")
 });
+
+contextBridge.exposeInMainWorld('logging',{
+    logged: () => ipcRenderer.invoke("loggedit")
+});

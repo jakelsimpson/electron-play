@@ -1,7 +1,10 @@
-const {app, BrowserWindow, ipcMain} = require("electron");
+const {app, BrowserWindow, ipcMain, Notification} = require("electron");
 const path = require('node:path');
 
 const createWindow = () => {
+    console.log(app.getVersion());
+    app.setBadgeCount(9);
+
     const win = new BrowserWindow({
         width: 800,
         height: 400,
@@ -15,6 +18,12 @@ const createWindow = () => {
 
 app.whenReady().then(() => {
     ipcMain.handle("ping", () => "pong");
+    ipcMain.handle("loggedit", () => {
+        new Notification({
+            title: "NOTIFICATION_TITLENEW",
+            body: "NOTIFICATION_BODY stuff to see"
+          }).show()
+    });
 
     createWindow();
 
@@ -26,7 +35,5 @@ app.whenReady().then(() => {
 });
 
 app.on("window-all-closed", () => {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
+    app.quit();
 });

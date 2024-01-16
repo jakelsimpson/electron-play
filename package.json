@@ -1,6 +1,6 @@
 {
   "name": "electron-play",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Just playing around with building an ElectronJS application",
   "main": "index.js",
   "scripts": {
